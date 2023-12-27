@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b2902c1da54d4eaead7921ce28c2fea4 }}/helloworld:${{ github.sha }}
+        tags: index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b2902c1da54d4eaead7921ce28c2fea4 }}/helloworld:latest
         file: ./Dockerfile
 
   deploy:
@@ -48,4 +48,4 @@ jobs:
         app-name: 'docker-helloworld'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_9244c0b621d447b48218ea4db388b460 }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b2902c1da54d4eaead7921ce28c2fea4 }}/helloworld:${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_b2902c1da54d4eaead7921ce28c2fea4 }}/helloworld:latest'
